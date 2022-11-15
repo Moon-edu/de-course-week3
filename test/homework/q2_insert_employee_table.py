@@ -11,7 +11,7 @@
 # 아래에서 pass를 지우고 로직을 작성하세요
 # 아래 함수를 실행하면, employee 테이블에 과제에 제시된 레코드가 존재해야합니다.
 def insert_employee_table():
-    pass
+    aaa
 
 
 
