@@ -17,4 +17,17 @@
 # password: postgres
 """
 def get_visitor_in_2022_07_11_09_00() -> list:
-    pass
+    import psycopg
+    with psycopg.connect("host=localhost dbname=postgres user=postgres password=postgres") as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                        select A.name,A.department, A.emp_id
+                        from employee A join visit_log b
+                        on A.emp_id = B.visitor
+                        where enter = TO_TIMESTAMP('2022-07-11 09:00:00', 'YYYY-MM-DD HH24:MI:SS');     
+                        """)
+            join_table = cur.fetchall()
+            conn.commit()
+            print(join_table)
+
+

@@ -16,4 +16,15 @@
 # password: postgres
 """
 def get_total_visit_in_2022_07_12() -> int:
-    pass
+    import psycopg
+    with psycopg.connect("host=localhost dbname=postgres user=postgres password=postgres") as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                        select count(enter) from visit_log
+                        where enter::DATE = TO_TIMESTAMP('20220712', 'YYYYMMDD');
+                        """)
+            count = cur.fetchall()
+            conn.commit()
+            print(count)
+
+
