@@ -16,5 +16,28 @@
 # user: postgres
 # password: postgres
 """
+import psycopg
+
+
 def get_total_visit_by_purpose() -> list:
-    pass
+    with psycopg.connect(
+        "host=localhost dbname=postgres user=postgres password=postgres"
+    ) as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                        SELECT 
+                            purpose, count(*)
+                        FROM 
+                            visit_log
+                        GROUP BY
+                            purpose;
+                    """
+            )
+            try:
+                result = cur.fetchall()
+            except IndexError:
+                print("No results")
+
+        conn.commit()
+        return result
