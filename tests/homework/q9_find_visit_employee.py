@@ -29,7 +29,5 @@ def get_visitor_in_2022_07_11_09_00() -> list:
             visitor= cur.fetchall()
 
         conn.commit()
-        print(visitor)
+        return(visitor)
 
-if __name__ == "__main__":
-    pass

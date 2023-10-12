@@ -22,6 +22,3 @@ def update_peach_position():
                                       set position = %s
                                     where name = %s """, to_update)
         conn.commit()
-
-if __name__ == "__main__":
-    pass

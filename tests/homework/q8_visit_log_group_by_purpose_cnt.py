@@ -26,7 +26,6 @@ def get_total_visit_by_purpose() -> list:
             cnt2= cur.fetchone()
 
         conn.commit()
-        print(cnt2)
+        return(cnt2)
 
-if __name__ == "__main__":
-    pass
+

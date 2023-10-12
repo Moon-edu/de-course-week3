@@ -29,7 +29,5 @@ def find_employee_male_table() -> list:
             male= cur.fetchall()
 
         conn.commit()
-        print(male)
+        return(male)
 
-if __name__ == "__main__":
-    pass

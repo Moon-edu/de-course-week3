@@ -43,7 +43,7 @@ def insert_employee_table():
      ,('C00001', 'Male'  , 'Lion' ,'53-3, Namyang-ju, Gyonghi'  , 1, 'C00000', 55 , 'CTO')
      ,('C00002', 'Others', 'Cindy','100, Jong-ro, Seoul'        , 3, 'C00000', 52 , 'Director')
      ,('B00102', 'Female', 'Ran'  ,'290-10, Gwanghwamun, Seoul' , 2, 'C00000', 45 , 'Director')
-     ,('C00000', 'Male'  , 'K'    ,'1010, Sung-soo, Seoul'      ,null, null  , 51 , 'CEO')]
+     ,('C00000', 'Male'  , 'K'    ,'1010, Sung-soo, Seoul'      ,None, None  , 51 , 'CEO')]
 
     with psycopg.connect ("host=localhost dbname=postgres user=postgres password=postgres") as conn:
         with conn.cursor() as cur:
@@ -54,5 +54,3 @@ def insert_employee_table():
                 """, e)
 
         conn.commit()
-if __name__ == "__main__":
-    pass

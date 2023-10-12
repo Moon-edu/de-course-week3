@@ -31,5 +31,4 @@ def create_visit_log_table():
 
         conn.commit()
 
-if __name__ == "__main__":
-    pass
+

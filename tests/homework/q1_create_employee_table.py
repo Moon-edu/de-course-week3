@@ -42,6 +42,3 @@ def create_employee_table():
                    )
             """)
         conn.commit()
-
-if __name__ == "__main__":
-    pass

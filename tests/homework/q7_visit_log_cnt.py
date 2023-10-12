@@ -26,7 +26,5 @@ def get_total_visit_in_2022_07_12() -> int:
             cnt=cur.fetchone()
 
         conn.commit()
-        print(cnt)
+        return(cnt)
 
-if __name__ == "__main__":
-    pass

@@ -24,5 +24,4 @@ def delete_null_visit():
 
         conn.commit()
 
-if __name__ == "__main__":
-    pass
+
