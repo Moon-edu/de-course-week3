@@ -16,5 +16,20 @@
 # user: postgres
 # password: postgres
 """
+import psycopg
 def get_visitor_in_2022_07_11_09_00() -> list:
+    with psycopg.connect("host=localhost dbname=postgres user=postgres password=postgres") as conn:
+        with conn.cursor() as cur:
+            cur.execute(""" select ta.name, ta.department, ta.emp_id
+                               from employee ta
+                               join visit_log tb
+                                 on ta.emp_id = tb.visitor
+                              where tb.enter = '2022-07-11 09:00:00' """)
+
+            visitor= cur.fetchall()
+
+        conn.commit()
+        print(visitor)
+
+if __name__ == "__main__":
     pass

@@ -13,5 +13,15 @@ Query의 실행 결과 데이터베이스에서 Peach의 직위가 Senior engine
 # user: postgres
 # password: postgres
 """
+import psycopg
 def update_peach_position():
+    with psycopg.connect("host=localhost dbname=postgres user=postgres password=postgres") as conn:
+        to_update = ("Senior engineer", "Peach")
+        with conn.cursor() as cur:
+            cur.execute(f"""update employee 
+                                      set position = %s
+                                    where name = %s """, to_update)
+        conn.commit()
+
+if __name__ == "__main__":
     pass

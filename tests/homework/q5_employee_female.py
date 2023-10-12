@@ -15,5 +15,18 @@
 # user: postgres
 # password: postgres
 """
+import psycopg
 def find_employee_female_table() -> list:
+    with psycopg.connect("host=localhost dbname=postgres user=postgres password=postgres") as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                 select age, position
+                   from employee
+                  where gender = 'Female' """)
+            female = cur.fetchall()
+
+        conn.commit()
+        print(female)
+
+if __name__ == "__main__":
     pass
