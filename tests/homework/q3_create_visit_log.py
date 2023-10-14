@@ -22,13 +22,12 @@ def create_visit_log_table():
     with psycopg.connect("host=localhost dbname=postgres user=postgres password=postgres") as conn:
         with conn.cursor() as cur:
             cur.execute("""
-                create table visit_log (
+              create table visit_log (
                    visitor varchar(6) 
                  , enter   timestamp  not null 
                  , out     timestamp 
                  , purpose varchar(50) )
                 """)
-
         conn.commit()
 
 

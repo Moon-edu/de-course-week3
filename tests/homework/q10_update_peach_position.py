@@ -18,7 +18,7 @@ def update_peach_position():
     with psycopg.connect("host=localhost dbname=postgres user=postgres password=postgres") as conn:
         to_update = ("Senior engineer", "Peach")
         with conn.cursor() as cur:
-            cur.execute(f"""update employee 
+            cur.execute(f""" update employee 
                                       set position = %s
                                     where name = %s """, to_update)
         conn.commit()

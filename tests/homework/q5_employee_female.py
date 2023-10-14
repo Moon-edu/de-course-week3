@@ -24,7 +24,6 @@ def find_employee_female_table() -> list:
                    from employee
                   where gender = 'Female' """)
             female = cur.fetchall()
-
         conn.commit()
         return(female)
 

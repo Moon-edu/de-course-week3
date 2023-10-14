@@ -21,7 +21,6 @@ def delete_null_visit():
         with conn.cursor() as cur:
             cur.execute("""delete from visit_log
                             where visitor is null""")
-
         conn.commit()
 
 

@@ -23,10 +23,7 @@ Q1. 아래 함수를 실행하면, 데이터베이스에 employee 테이블이 �
 # password: postgres
 """
 import psycopg
-import sys
 def create_employee_table():
-
-    #SQL injection
     with psycopg.connect ("host=localhost dbname=postgres user=postgres password=postgres") as conn:
         with conn.cursor() as cur:
             cur.execute("""

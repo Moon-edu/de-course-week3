@@ -23,8 +23,7 @@ def get_total_visit_in_2022_07_12() -> int:
              select count(*)
                from visit_log
               where date_trunc('day', enter) = '2022-07-12'""")
-            cnt=cur.fetchone()
-
+            cnt = cur.fetchone()
         conn.commit()
         return(cnt)
 

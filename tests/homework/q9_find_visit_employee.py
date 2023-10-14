@@ -26,8 +26,7 @@ def get_visitor_in_2022_07_11_09_00() -> list:
                                  on ta.emp_id = tb.visitor
                               where tb.enter = '2022-07-11 09:00:00' """)
 
-            visitor= cur.fetchall()
-
+            visitor = cur.fetchall()
         conn.commit()
         return(visitor)
 

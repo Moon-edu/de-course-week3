@@ -25,9 +25,7 @@ def find_employee_male_table() -> list:
                from employee
               where gender= 'Male'
               order by age desc""")
-
-            male= cur.fetchall()
-
+            male = cur.fetchall()
         conn.commit()
         return(male)
 
