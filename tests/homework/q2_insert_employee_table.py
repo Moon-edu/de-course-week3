@@ -47,7 +47,7 @@ def insert_employee_table():
         with conn.cursor() as cur:
             for e in employee:
                 cur.execute(f"""
-                    insert into employee(emp_id, gender, name, address, department, manager, age, position)
-                    values(%s, %s, %s, %s) 
+                    insert into employee
+                    values(%s, %s, %s, %s, %s, %s, %s, %s) 
                 """, e)
         conn.commit()
