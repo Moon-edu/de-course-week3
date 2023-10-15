@@ -43,5 +43,110 @@ A08771	2022-07-14 08:30:00		                    work
 # user: postgres
 # password: postgres
 """
+import psycopg
+
+
 def insert_visit_log_table():
-    pass
+    with psycopg.connect("host=localhost dbname=postgres user=postgres password=postgres") as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+insert into visit_log
+values
+    ('A00001',	'2022-07-11 11:00:00',	'2022-07-11 18:00:00',	    'work');
+
+insert into visit_log
+values
+    ('B00100',	'2022-07-11 10:00:00',	'2022-07-11 19:00:00',	    'work');
+
+insert into visit_log
+values
+    ('A08771',	'2022-07-11 09:00:00',	'2022-07-11 17:56:00',	    'work');
+
+insert into visit_log
+values
+    ('C00129',	'2022-07-11 09:00:00',	'2022-07-11 18:20:00',	    'work');
+
+insert into visit_log
+(enter, out, purpose)
+values
+    ('2022-07-11 12:30:00',	'2022-07-11 14:45:00',	    'meeting');
+
+insert into visit_log
+values
+    ('C00001',	'2022-07-11 09:20:00',	'2022-07-11 18:00:00',	    'work');
+
+insert into visit_log
+values
+    ('C00002',	'2022-07-11 09:30:00',	'2022-07-11 18:20:00',	    'work');
+insert into visit_log
+values
+    ('A00001',	'2022-07-12 08:15:00',	'2022-07-12 17:56:00',	    'work');
+insert into visit_log
+values
+    ('B00100',	'2022-07-12 08:30:00',	'2022-07-12 19:00:00',	    'work');
+
+insert into visit_log
+values
+    ('A08771',	'2022-07-12 09:20:00',	'2022-07-12 18:20:00',	    'work');
+
+insert into visit_log
+    (enter, out, purpose)
+values
+    ('2022-07-12 15:20:00',	'2022-07-12 16:50:00',	    'visit family');
+
+insert into visit_log
+values
+    ('C00129',	'2022-07-12 10:00:00',	'2022-07-12 18:00:00',	    'work');
+
+insert into visit_log
+values
+    ('C00001',	'2022-07-12 10:00:00',	'2022-07-12 18:00:00'	,    'work');
+insert into visit_log
+values
+    ('C00002',	'2022-07-12 09:00:00',	'2022-07-12 17:56:00',    'work');
+
+insert into visit_log
+values
+    ('A00001',	'2022-07-13 09:00:00',	'2022-07-13 18:20:00',	    'work');
+
+insert into visit_log
+values
+    ( 'B00100',	'2022-07-13 08:30:00',	'2022-07-13 18:00:00',	    'work');
+
+insert into visit_log
+values
+    ('A08771',	'2022-07-13 09:20:00',	'2022-07-13 18:00:00',	    'work');
+
+insert into visit_log
+values
+    ('C00129',	'2022-07-13 10:00:00',	'2022-07-13 18:00:00',	    'work');
+
+insert into visit_log
+values
+    ('C00001',	'2022-07-13 09:20:00',	'2022-07-13 18:20:00',	    'work');
+
+insert into visit_log
+values
+    ('C00002',	'2022-07-13 08:15:00',	'2022-07-13 17:56:00',	    'work');
+
+insert into visit_log
+(visitor, enter, purpose)
+values
+    ('A00001',	'2022-07-14 08:30:00',	                    'work');
+insert into visit_log
+(visitor, enter, purpose)
+values
+    ('B00100',	'2022-07-14 08:30:00',		                    'work');
+insert into visit_log
+(visitor, enter, purpose)
+values
+    ('A08771',	'2022-07-14 08:30:00',	                    'work')
+                """)
+
+            conn.commit()
+
+
+
+def test_insert_visit_log_table():
+    insert_visit_log_table()
+    verify()

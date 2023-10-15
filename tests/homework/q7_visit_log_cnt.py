@@ -16,4 +16,16 @@
 # password: postgres
 """
 def get_total_visit_in_2022_07_12() -> int:
-    pass
+    with psycopg.connect("host=localhost dbname=postgres user=postgres password=postgres") as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                SELECT count(*) FROM visit_log where enter like '2022-07-12%'
+            """)
+            visit = cur.fetchall()
+        conn.commit()
+        print(int(visit[0][0]))
+
+
+def test_get_total_visit_in_2022_07_12():
+    get_total_visit_in_2022_07_12()
+    verify()
