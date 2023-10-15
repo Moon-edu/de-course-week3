@@ -23,8 +23,8 @@ def get_total_visit_by_purpose() -> list:
             cur.execute("""  select purpose, count(*)
                                from visit_log
                               group by purpose""")
-            cnt2 = cur.fetchone()
+            cnt = cur.fetchone()
         conn.commit()
-        return(cnt2)
+        return(cnt)
 
 
