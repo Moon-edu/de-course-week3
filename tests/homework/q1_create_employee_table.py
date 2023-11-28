@@ -22,5 +22,22 @@ Q1. 아래 함수를 실행하면, 데이터베이스에 employee 테이블이 �
 # user: postgres
 # password: postgres
 """
+
 def create_employee_table():
-    pass
+    with psycopg.connect("dbname=postgres host=localhost user=postgres password=postgres") as conn :
+        with conn.cursor() as cur :
+            cur.execute(f"""
+                CREATE TABLE employee (
+                    emp_id CHAR(6) UNIQUE NOT NULL,
+                    gender VARCHAR(6) NOT NULL CHECK(gender IN ('Male', 'Female', 'Others')),
+                    name VARCHAR(20) NOT NULL,
+                    address VARCHAR(100),
+                    department INT CHECK(department < 100),
+                    manager char(6),
+                    age INT NOT NULL check(age < 200),
+                    position VARCHAR(30)
+                )
+;
+            """)
+
+        conn.commit()
