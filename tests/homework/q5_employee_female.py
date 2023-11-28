@@ -29,6 +29,7 @@ def find_employee_female_table() -> list:
                 WHERE gender = %s;
                 """, genders)
             results = cur.fetchall()
-            print(results)
 
         conn.commit()
+
+    return results 

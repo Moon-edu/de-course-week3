@@ -31,6 +31,9 @@ def get_visitor_in_2022_07_11_09_00() -> list:
             """, ("2022-07-11 09:00:00", ))
 
             results = cur.fetchall()
-            print(results)
 
         conn.commit()
+        
+    return results
+    
+    

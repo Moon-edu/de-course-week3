@@ -33,6 +33,7 @@ def find_employee_male_table() -> list:
                 ORDER BY age DESC;
             """, genders)
             results = cur.fetchall()
-            print(results)
 
         conn.commit()
+
+    return results

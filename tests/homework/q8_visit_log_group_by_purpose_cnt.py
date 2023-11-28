@@ -29,6 +29,7 @@ def get_total_visit_by_purpose() -> list:
             """)
 
             results = cur.fetchall()
-            print(results)
 
         conn.commit()
+
+    return results

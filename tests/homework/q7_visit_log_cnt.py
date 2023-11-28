@@ -29,7 +29,8 @@ def get_total_visit_in_2022_07_12() -> int:
             """, ("2022-07-12 0:00:00", "2022-07-13 0:00:00"))
 
             results = cur.fetchall()
-            print(int(results[0][0]))
+            
 
         conn.commit()
 
+    return int(results[0][0])
