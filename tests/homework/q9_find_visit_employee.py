@@ -16,6 +16,10 @@
 # user: postgres
 # password: postgres
 """
+
+import psycopg
+
+
 def get_visitor_in_2022_07_11_09_00() -> list:
     with psycopg.connect("dbname=postgres host=localhost user=postgres password=postgres") as conn:
         with conn.cursor() as cur:

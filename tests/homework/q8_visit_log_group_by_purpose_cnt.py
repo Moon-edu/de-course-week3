@@ -16,6 +16,9 @@
 # user: postgres
 # password: postgres
 """
+import psycopg
+
+
 def get_total_visit_by_purpose() -> list:
     with psycopg.connect("dbname=postgres host=localhost user=postgres password=postgres") as conn:
         with conn.cursor() as cur:

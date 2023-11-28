@@ -16,6 +16,10 @@
 # user: postgres
 # password: postgres
 """
+
+import psycopg
+
+
 def find_employee_male_table() -> list:
     with psycopg.connect("dbname=postgres host=localhost user=postgres password=postgres") as conn:
         with conn.cursor() as cur:

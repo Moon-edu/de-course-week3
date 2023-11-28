@@ -17,6 +17,10 @@ Q3. 아래 함수를 실행하면, 데이터베이스에 visit_log 테이블이 
 # user: postgres
 # password: postgres
 """
+
+import psycopg
+
+
 def create_visit_log_table():
     with psycopg.connect("dbname=postgres host=localhost user=postgres password=postgres") as conn:
         with conn.cursor() as cur :

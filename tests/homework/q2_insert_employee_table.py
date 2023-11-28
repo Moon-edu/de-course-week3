@@ -31,6 +31,9 @@ K의 department와 manager의 값은 빈 문자열('')이 아닌 null입니다, 
 # user: postgres
 # password: postgres
 """
+
+import psycopg
+
 def insert_employee_table():
     with psycopg.connect("dbname=postgres host=localhost user=postgres password=postgres") as conn:
         with conn.cursor() as cur :

@@ -15,6 +15,10 @@ Hint: delete를 사용하세요
 # user: postgres
 # password: postgres
 """
+
+import psycopg
+
+
 def delete_null_visit():
     with psycopg.connect("dbname=postgres host=localhost user=postgres password=postgres") as conn:
         with conn.cursor() as cur:

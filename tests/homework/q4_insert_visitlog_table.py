@@ -43,6 +43,10 @@ A08771	2022-07-14 08:30:00		                    work
 # user: postgres
 # password: postgres
 """
+
+import psycopg
+
+
 def insert_visit_log_table():
     with psycopg.connect("dbname=postgres host=localhost user=postgres password=postgres") as conn:
         with conn.cursor() as cur:
