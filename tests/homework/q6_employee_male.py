@@ -16,5 +16,16 @@
 # user: postgres
 # password: postgres
 """
+import psycopg
+
 def find_employee_male_table() -> list:
-    pass
+    with psycopg.connect("host=localhost dbname=postgres user=postgres password=postgres") as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                select name, age, position
+                from employee 
+                where gender = 'Male'
+                order by age desc
+            """)
+            conn.close()
+            return cur.fetchall()
