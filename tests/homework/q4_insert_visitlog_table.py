@@ -74,4 +74,3 @@ def insert_visit_log_table():
 
             cur.executemany("INSERT INTO visit_log  values(%s,%s,%s,%s)", data_to_insert)
             conn.commit()
-            conn.close()

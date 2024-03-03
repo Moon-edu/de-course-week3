@@ -25,5 +25,4 @@ def get_total_visit_in_2022_07_12() -> int:
                 from visit_log
                 where enter >= '2022-07-12' and enter < '2022-07-13'
             """)
-            conn.close()
             return cur.fetchall()

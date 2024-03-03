@@ -25,4 +25,3 @@ def delete_null_visit():
                             """)
 
             conn.commit()
-            conn.close()

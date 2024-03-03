@@ -25,5 +25,4 @@ def find_employee_female_table() -> list:
                 from employee
                 where gender = 'Female'
             """)
-            conn.close()
             return cur.fetchall()

@@ -41,5 +41,4 @@ def create_employee_table():
             """)
 
             conn.commit()
-            conn.close()
 

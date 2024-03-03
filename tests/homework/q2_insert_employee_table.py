@@ -48,4 +48,3 @@ def insert_employee_table():
 
             cur.executemany("INSERT INTO employee values(%s,%s,%s,%s,%s,%s,%s,%s)", data_to_insert)
             conn.commit()
-            conn.close()

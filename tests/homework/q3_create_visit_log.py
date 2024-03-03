@@ -32,4 +32,3 @@ def create_visit_log_table():
             """)
 
             conn.commit()
-            conn.close()

@@ -26,5 +26,4 @@ def get_total_visit_by_purpose() -> list:
                 from visit_log
                 group by purpose
             """)
-            conn.close()
             return cur.fetchall()

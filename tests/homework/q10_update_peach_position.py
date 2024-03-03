@@ -25,5 +25,4 @@ def update_peach_position():
                         WHERE name=%s
                     """, to_update)
             conn.commit()
-            conn.close()
 
